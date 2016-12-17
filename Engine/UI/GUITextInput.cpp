@@ -16,7 +16,7 @@ GUITextInput::GUITextInput(std::string name, float x, float y, int width, int he
 }
 
 void GUITextInput::Update(Mouse* _mouse, Keyboard* kbd) {
-	if (IsHover(_mouse) ) {
+	/*if (IsHover(_mouse) ) {
 		_mouse->ChangeCursor(IDC_IBEAM);
 		if (Status != ACTIVE) {
 			Status = HOVER;
@@ -24,7 +24,7 @@ void GUITextInput::Update(Mouse* _mouse, Keyboard* kbd) {
 	}
 	else {
 		_mouse->ChangeCursor(IDC_ARROW);
-	}
+	}*/
 
 	if (IsLMB(_mouse)) {
 		Status = ACTIVE;

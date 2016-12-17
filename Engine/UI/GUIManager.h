@@ -19,7 +19,7 @@ public:
 	void ClearGUI();
 	std::shared_ptr<GUIElement> GetElement(std::string name);
 private:
-	Mouse* mouse;
+	Mouse* _mouse;
 	Keyboard* kbd;
 	std::vector<std::shared_ptr<GUIElement>> Elements;
 };

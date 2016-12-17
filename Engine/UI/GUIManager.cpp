@@ -4,7 +4,7 @@
 GUIManager::GUIManager(Mouse * ms, Keyboard * kbd)
 	:
 	kbd(kbd),
-	mouse(ms)
+	_mouse(ms)
 {
 }
 
@@ -15,7 +15,7 @@ GUIManager::~GUIManager()
 
 void GUIManager::AddTextInput(std::string name, float x, float y, int width, int height, std::wstring fontfamily)
 {
-	Elements.emplace_back(std::make_unique<GUITextInput>(name, x, y, width, height, fontfamily));
+	Elements.emplace_back(std::make_shared<GUITextInput>(name, x, y, width, height, fontfamily));
 }
 
 void GUIManager::AddButton()
@@ -43,8 +43,19 @@ void GUIManager::Draw(Graphics & gfx)
 
 void GUIManager::Update()
 {
+	int ti = 0;
 	for (auto i : Elements) {
-		i->Update(mouse, kbd);
+		i->Update(_mouse, kbd);
+		if (i->IsHover(_mouse)) {
+			ti++;
+		}
+	}
+	//mouse cursor (need to work with type )
+	if (ti > 0) {
+		_mouse->ChangeCursor(IDC_IBEAM);
+	}
+	else {
+		_mouse->ChangeCursor(IDC_ARROW);
 	}
 }
 
@@ -60,6 +71,5 @@ std::shared_ptr<GUIElement> GUIManager::GetElement(std::string name)
 			return i;
 		}
 	}
-	return false;
+	return nullptr;
 }
-

@@ -19,11 +19,12 @@
 *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
 ******************************************************************************************/
 #pragma once
+
+#include "TextSurface.h"
 #include <d3d11.h>
 #include <wrl.h>
 #include "ChiliException.h"
 #include "Colors.h"
-#include "TextSurface.h"
 
 #define CHILI_GFX_EXCEPTION( hr,note ) Graphics::Exception( hr,note,_CRT_WIDE(__FILE__),__LINE__ )
 

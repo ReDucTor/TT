@@ -233,8 +233,12 @@
     <ClInclude Include="GameState\GameStateLogin.h" />
     <ClInclude Include="GameState\GameStateSelectServer.h" />
     <ClInclude Include="GameState\GameStateStartUp.h" />
+    <ClInclude Include="UI\Border.h" />
     <ClInclude Include="UI\ButtonEntity.h" />
-    <ClInclude Include="UI\TextInput.h" />
+    <ClInclude Include="UI\GUIElement.h" />
+    <ClInclude Include="UI\GUIManager.h" />
+    <ClInclude Include="UI\GUITextInput.h" />
+    <ClInclude Include="UI\Label.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
@@ -255,7 +259,9 @@
     <ClCompile Include="GameState\GameStateLogin.cpp" />
     <ClCompile Include="GameState\GameStateSelectServer.cpp" />
     <ClCompile Include="GameState\GameStateStartUp.cpp" />
-    <ClCompile Include="UI\TextInput.cpp" />
+    <ClCompile Include="UI\GUIElement.cpp" />
+    <ClCompile Include="UI\GUIManager.cpp" />
+    <ClCompile Include="UI\GUITextInput.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

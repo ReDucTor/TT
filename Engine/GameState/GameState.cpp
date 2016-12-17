@@ -6,6 +6,7 @@ GameState::GameState(Game* gm)
 	:
 	pGame(gm),
 	pClient(gm->GetClient()),
-	MinionPro(L"Minion Pro", 18)
+	MinionPro(L"Minion Pro", 18),
+	pGUI(gm->GetGUI())
 {
 }

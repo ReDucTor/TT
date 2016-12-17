@@ -27,7 +27,8 @@ Game::Game(MainWindow& wnd, unsigned int width, unsigned int height)
 	wnd(wnd),
 	gfx(wnd, width, height),
 	pCurrentState(new GameStateStartUp(this)),
-	GameClient()
+	GameClient(),
+	GUI(&wnd.mouse,&wnd.kbd)
 {
 }
 
@@ -45,19 +46,26 @@ void Game::UpdateModel()
 		exit(1);
 	}
 	pCurrentState->Update();
+	GUI.Update();
 }
 
 void Game::ComposeFrame()
 {
 	pCurrentState->Draw(gfx);
+	GUI.Draw(gfx);
 }
 
-void Game::SetGameState(GameState* newstate)
+void Game::SetGameState(std::unique_ptr<GameState>&& newstate)
 {
-	pCurrentState = newstate;
+	pCurrentState = std::move(newstate);
 }
 
 Client * Game::GetClient()
 {
 	return &GameClient;
+}
+
+GUIManager * Game::GetGUI()
+{
+	return &GUI;
 }

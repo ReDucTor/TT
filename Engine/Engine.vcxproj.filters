@@ -28,11 +28,17 @@
     <Filter Include="Source Files\GameState">
       <UniqueIdentifier>{3c352956-8021-40a4-a2bd-8eadfaa0c986}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{a640fa0e-c55b-4ac0-9178-1ec028656c6a}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{0c6eb342-c227-4afa-8dec-79ba21e46286}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\UI">
-      <UniqueIdentifier>{a640fa0e-c55b-4ac0-9178-1ec028656c6a}</UniqueIdentifier>
+    <Filter Include="Header Files\UI\Futures">
+      <UniqueIdentifier>{57854f20-e5d3-4215-814f-d0fbf9d7e420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\Futures">
+      <UniqueIdentifier>{e5c810ab-6a9d-4e4a-a4aa-927133e11ae7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -126,14 +132,26 @@
     <ClInclude Include="UI\ButtonEntity.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="UI\TextInput.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\GUIElement.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\GUIManager.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\GUITextInput.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Border.h">
+      <Filter>Header Files\UI\Futures</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Label.h">
+      <Filter>Header Files\UI\Futures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -182,9 +200,6 @@
     <ClCompile Include="GameState\GameStateStartUp.cpp">
       <Filter>Source Files\GameState</Filter>
     </ClCompile>
-    <ClCompile Include="UI\TextInput.cpp">
-      <Filter>Source Files\UI</Filter>
-    </ClCompile>
     <ClCompile Include="Client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -192,7 +207,16 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameState\GameStateLogin.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\GUIElement.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\GUIManager.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\GUITextInput.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -281,7 +281,7 @@ void Graphics::EndFrame()
 	pImmediateContext->Draw( 6u,0u );
 
 	// flip back/front buffers
-	if( FAILED( hr = pSwapChain->Present( 1u,0u ) ) )
+	if( FAILED( hr = pSwapChain->Present( 0u,0u ) ) )
 	{
 		throw CHILI_GFX_EXCEPTION( hr,L"Presenting back buffer" );
 	}
@@ -321,14 +321,19 @@ void Graphics::DrawSpriteAlfa(int dstX, int dstY, const Surface & surf)
 		for (int b = xStart; b < xEnd; b++) {
 
 			const Color src = surf.GetPixel(b, a);
-			const Color dst = sysBuffer.GetPixel(dstX + b, dstY + a);
+			if (src.GetA() < 255) {
+				const Color dst = sysBuffer.GetPixel(dstX + b, dstY + a);
 
-			//Channels
-			unsigned char Red = (src.GetR() * src.GetA() + dst.GetR() * (255 - src.GetA())) / 255;
-			unsigned char Green = (src.GetG() * src.GetA() + dst.GetG() * (255 - src.GetA())) / 255;
-			unsigned char Blue = (src.GetB() * src.GetA() + dst.GetB() * (255 - src.GetA())) / 255;
-		
-			sysBuffer.PutPixel(dstX + b, dstY + a, {Red,Green,Blue});
+				//Channels
+				unsigned char Red = (src.GetR() * src.GetA() + dst.GetR() * (255 - src.GetA())) / 255;
+				unsigned char Green = (src.GetG() * src.GetA() + dst.GetG() * (255 - src.GetA())) / 255;
+				unsigned char Blue = (src.GetB() * src.GetA() + dst.GetB() * (255 - src.GetA())) / 255;
+
+				sysBuffer.PutPixel(dstX + b, dstY + a, { Red,Green,Blue });
+			}
+			else {
+				sysBuffer.PutPixel(dstX + b, dstY + a,src);
+			}
 		}
 	}
 }

@@ -36,7 +36,7 @@ void GameStateStartUp::Update()
 		break;
 	case CONNECTED:
 		//Log("Startup: Connected");
-		pGame->SetGameState(new GameStateSelectServer(pGame));
+		pGame->SetGameState(std::make_unique<GameStateSelectServer>(pGame));
 		break;
 	}
 }

@@ -8,5 +8,5 @@ public:
 	virtual void Draw(Graphics& gfx);
 	virtual void Update();
 private:
-	Surface UIPanel;
+	Surface UISelectServerPanel;
 };

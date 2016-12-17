@@ -1,9 +1,11 @@
 #pragma once
 #include "../Framework/Graphics.h"
 #include "../Framework/AnimatedSurface.h"
+#include "..\UI\GUIManager.h"
 
 class Game;
 class Client;
+
 class GameState {
 public:
 	GameState(Game* gm);
@@ -14,4 +16,5 @@ protected:
 	//Pointers
 	Game* pGame;
 	Client* pClient;
+	GUIManager* pGUI;
 };

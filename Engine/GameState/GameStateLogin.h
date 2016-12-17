@@ -6,4 +6,6 @@ public:
 	GameStateLogin(Game* gm);
 	virtual void Draw(Graphics& gfx);
 	virtual void Update();
+private:
+	Surface UILoginPanel;
 };

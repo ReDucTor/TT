@@ -27,7 +27,7 @@
 #include "Framework\Log.h"
 #include "Framework\Graphics.h"
 #include "Framework\TextSurface.h"
-#include "UI\TextInput.h"
+#include "UI\GUIManager.h"
 
 class Game
 {
@@ -43,14 +43,16 @@ private:
 	/*  User Functions              */
 	/********************************/
 public :
-	void SetGameState(GameState* newstate);
+	void SetGameState(std::unique_ptr<GameState>&& newstate);
 	Client* GetClient();
+	GUIManager* GetGUI();
 private:
 	MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
 	/*  User Variables        */
-	GameState* pCurrentState;
+	std::unique_ptr<GameState> pCurrentState;
 	Client GameClient;
+	GUIManager GUI;
 	/********************************/
 };

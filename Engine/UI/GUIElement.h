@@ -9,26 +9,26 @@
 #include <string>
 
 class GUIElement {
-protected:
-	enum State {
-		ACTIVE,
-		HOVER,
-		NORMAL
-	};
 public:
 	GUIElement(std::string name, RectF rect);
-	virtual void Draw(Graphics& gfx) {}
-	virtual void Update(Mouse* _mouse,Keyboard* kbd) {}
-	virtual bool IsHover(Mouse* _mouse);
-	virtual bool IsLMB(Mouse* _mouse);
-	std::string GetName() { return Name; }
+	virtual void Draw(Graphics& gfx);
+	virtual void Update(Mouse* _mouse, Keyboard* kbd);
+	bool IsHover();
+	bool IsLMB();
+
+	void SetBorder(bool stt) { eBorder.isOn = stt; }
+	void SetBorderColor(Color newcolor) { eBorder.borderColor = newcolor; }
+	void SetBorderSize(int newsize) { eBorder.borderSize = newsize; }
+
+	std::string GetName() const { return Name; }
 private:
 	void DrawBorder(Graphics& gfx);
-protected:
-	Border eBorder;
-	Label eLabel;
-protected:
-	State Status;	//Element state
+private:
+	Border eBorder; // element border
 	const std::string Name; // name of element
+protected:
+	bool Active;
+	bool LMB;
+	bool Hover;
 	RectF Box;			// element rect(box)
 };

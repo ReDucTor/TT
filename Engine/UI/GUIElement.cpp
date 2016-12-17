@@ -4,22 +4,42 @@ GUIElement::GUIElement(std::string name, RectF rect)
 	:
 	Name(name),
 	Box(rect),
-	Status(NORMAL)
+	Active(false),
+	LMB(false),
+	Hover(false)
 {
 }
 
-bool GUIElement::IsHover(Mouse * _mouse)
+void GUIElement::Draw(Graphics & gfx)
 {
-	if (Box.Overlaps(_mouse->GetPosX(), _mouse->GetPosY()))
-		return true;
-	return false;
+	DrawBorder(gfx);
 }
 
-bool GUIElement::IsLMB(Mouse * _mouse)
+void GUIElement::Update(Mouse * _mouse, Keyboard * kbd)
 {
-	if (IsHover(_mouse) && _mouse->LeftIsPressed())
-		return true;
-	return false;
+	if (Box.Overlaps(_mouse->GetPosX(), _mouse->GetPosY())) {
+		Hover = true;
+	}
+	else {
+		Hover = false;
+	}
+
+	if (Hover && _mouse->LeftIsPressed()) {
+		LMB = true;
+	}
+	else {
+		LMB = false;
+	}
+}
+
+bool GUIElement::IsHover()
+{
+	return Hover;
+}
+
+bool GUIElement::IsLMB()
+{
+	return LMB;
 }
 
 void GUIElement::DrawBorder(Graphics& gfx)

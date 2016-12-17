@@ -46,7 +46,7 @@ void GUIManager::Update()
 	int ti = 0;
 	for (auto i : Elements) {
 		i->Update(_mouse, kbd);
-		if (i->IsHover(_mouse)) {
+		if (i->IsHover()) {
 			ti++;
 		}
 	}

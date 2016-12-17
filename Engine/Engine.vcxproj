@@ -238,7 +238,6 @@
     <ClInclude Include="UI\GUIElement.h" />
     <ClInclude Include="UI\GUIManager.h" />
     <ClInclude Include="UI\GUITextInput.h" />
-    <ClInclude Include="UI\Label.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />

@@ -37,9 +37,6 @@
     <Filter Include="Header Files\UI\Futures">
       <UniqueIdentifier>{57854f20-e5d3-4215-814f-d0fbf9d7e420}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\UI\Futures">
-      <UniqueIdentifier>{e5c810ab-6a9d-4e4a-a4aa-927133e11ae7}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">
@@ -148,9 +145,6 @@
       <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="UI\Border.h">
-      <Filter>Header Files\UI\Futures</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\Label.h">
       <Filter>Header Files\UI\Futures</Filter>
     </ClInclude>
   </ItemGroup>

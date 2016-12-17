@@ -16,26 +16,17 @@ GUITextInput::GUITextInput(std::string name, float x, float y, int width, int he
 }
 
 void GUITextInput::Update(Mouse* _mouse, Keyboard* kbd) {
-	/*if (IsHover(_mouse) ) {
-		_mouse->ChangeCursor(IDC_IBEAM);
-		if (Status != ACTIVE) {
-			Status = HOVER;
-		}
-	}
-	else {
-		_mouse->ChangeCursor(IDC_ARROW);
-	}*/
-
-	if (IsLMB(_mouse)) {
-		Status = ACTIVE;
+	GUIElement::Update(_mouse,kbd);
+	if (LMB) {
+		Active = true;
 		kbd->Flush();
 		time(&last);
 	} 
-	else if (!IsHover(_mouse) && _mouse->LeftIsPressed()) {
-		Status = NORMAL;
+	else if (!Hover && _mouse->LeftIsPressed()) {
+		Active = false;
 	}
 
-	if (Status == ACTIVE) {
+	if (Active) {
 		while (!(kbd->CharIsEmpty())) {
 			unsigned char txt = kbd->ReadChar();
 			if ((txt >= '0' && txt <= '9' || txt >= 'A' && txt <= 'z') && inputText.size() < maxchar) {
@@ -51,7 +42,7 @@ void GUITextInput::Update(Mouse* _mouse, Keyboard* kbd) {
 
 void GUITextInput::Draw(Graphics& gfx) {
 	if (placeholder.size() > 0) {
-		if (Status != ACTIVE && inputText.size() <= 0) {
+		if (!Active && inputText.size() <= 0) {
 			gfx.DrawClipText(placeholder, Box, font, phcolor);
 		}
 		if (inputText.size() > 0) {
@@ -121,7 +112,7 @@ void GUITextInput::Draw(Graphics& gfx) {
 		}
 	}
 
-	if (Status == ACTIVE) {
+	if (Active) {
 		RectF rc = gfx.MeasureString(inputText, -1, font, Box);
 		int x;
 		if (isPassword) {
@@ -154,19 +145,7 @@ void GUITextInput::Draw(Graphics& gfx) {
 		int y = (Box.GetHeight() / 2) - (fontsize / 2);
 		DrawActiveCursor(Box.left + x, Box.top + y, gfx);
 	}
-
-	for (int i = Box.left; i < Box.right; i++) {
-		gfx.PutPixel(i + 1, Box.top, { 0,0,0 });
-	}
-	for (int i = Box.left; i < Box.right; i++) {
-		gfx.PutPixel(i, Box.bottom, { 0,0,0 });
-	}
-	for (int i = Box.top; i < Box.bottom; i++) {
-		gfx.PutPixel(Box.left, i, { 0,0,0 });
-	}
-	for (int i = Box.top; i < Box.bottom; i++) {
-		gfx.PutPixel(Box.right, i + 1, { 0,0,0 });
-	}
+	GUIElement::Draw(gfx);
 }
 
 void GUITextInput::DrawActiveCursor(int x, int y, Graphics & gfx)

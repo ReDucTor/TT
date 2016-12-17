@@ -23,7 +23,7 @@ public:
 	virtual bool IsLMB(Mouse* _mouse);
 	std::string GetName() { return Name; }
 private:
-	void DrawBorder();
+	void DrawBorder(Graphics& gfx);
 protected:
 	Border eBorder;
 	Label eLabel;

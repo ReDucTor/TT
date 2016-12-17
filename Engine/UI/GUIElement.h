@@ -22,7 +22,7 @@ public:
 	virtual bool IsHover(Mouse* _mouse);
 	virtual bool IsLMB(Mouse* _mouse);
 	std::string GetName() { return Name; }
-protected:
+private:
 	void DrawBorder();
 protected:
 	Border eBorder;

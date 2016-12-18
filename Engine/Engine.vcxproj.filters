@@ -147,6 +147,9 @@
     <ClInclude Include="UI\Border.h">
       <Filter>Header Files\UI\Futures</Filter>
     </ClInclude>
+    <ClInclude Include="UI\GUIButton.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\BMP.cpp">
@@ -211,6 +214,9 @@
     </ClCompile>
     <ClCompile Include="UI\GUITextInput.cpp">
       <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\GUIButton.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

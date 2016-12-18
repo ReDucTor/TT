@@ -235,6 +235,7 @@
     <ClInclude Include="GameState\GameStateStartUp.h" />
     <ClInclude Include="UI\Border.h" />
     <ClInclude Include="UI\ButtonEntity.h" />
+    <ClInclude Include="UI\GUIButton.h" />
     <ClInclude Include="UI\GUIElement.h" />
     <ClInclude Include="UI\GUIManager.h" />
     <ClInclude Include="UI\GUITextInput.h" />
@@ -258,6 +259,7 @@
     <ClCompile Include="GameState\GameStateLogin.cpp" />
     <ClCompile Include="GameState\GameStateSelectServer.cpp" />
     <ClCompile Include="GameState\GameStateStartUp.cpp" />
+    <ClCompile Include="UI\GUIButton.cpp" />
     <ClCompile Include="UI\GUIElement.cpp" />
     <ClCompile Include="UI\GUIManager.cpp" />
     <ClCompile Include="UI\GUITextInput.cpp" />

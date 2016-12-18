@@ -9,6 +9,7 @@ GameStateLogin::GameStateLogin(Game * gm)
 	pGUI->AddTextInput("password", 590, 373, 185, 25);
 	auto username = std::static_pointer_cast<GUITextInput>(pGUI->GetElement("username"));
 	auto password = std::static_pointer_cast<GUITextInput>(pGUI->GetElement("password"));
+	password->SetTypePassword(true);
 }
 
 void GameStateLogin::Draw(Graphics & gfx)

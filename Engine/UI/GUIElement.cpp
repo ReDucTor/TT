@@ -6,7 +6,8 @@ GUIElement::GUIElement(std::string name, RectF rect)
 	Box(rect),
 	Active(false),
 	LMB(false),
-	Hover(false)
+	Hover(false),
+	ElementStatus(true)
 {
 }
 

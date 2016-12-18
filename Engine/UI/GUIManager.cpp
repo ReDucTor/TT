@@ -1,5 +1,6 @@
 #include "GUIManager.h"
 #include "GUITextInput.h"
+#include "GUIButton.h"
 
 GUIManager::GUIManager(Mouse * ms, Keyboard * kbd)
 	:
@@ -18,8 +19,9 @@ void GUIManager::AddTextInput(std::string name, float x, float y, int width, int
 	Elements.emplace_back(std::make_shared<GUITextInput>(name, x, y, width, height, fontfamily));
 }
 
-void GUIManager::AddButton()
+void GUIManager::AddButton(std::string name, std::string title, std::string path, float x, float y, int width, int height, std::wstring font, float fontsize, bool textbold)
 {
+	Elements.emplace_back(std::make_shared<GUIButton>(name, title, path, x, y, width, height, font, fontsize, textbold));
 }
 
 void GUIManager::AddCheckBox()

@@ -13,8 +13,8 @@ public:
 	virtual void Update(Mouse* _mouse, Keyboard* kbd);
 	bool IsHover();
 	bool IsLMB();
-	void Enable() { ElementStatus = true; }
-	void Disable() { ElementStatus = false; }
+	void Enable() { Enabled = true; }
+	void Disable() { Enabled = false; }
 
 	void SetBorder(bool stt) { eBorder.isOn = stt; }
 	void SetBorderColor(Color newcolor) { eBorder.borderColor = newcolor; }
@@ -27,7 +27,7 @@ private:
 	Border eBorder; // element border
 	const std::string Name; // name of element
 protected:
-	bool ElementStatus; // enabled or disabled
+	bool Enabled; // enabled or disabled
 	bool Active; // is element active
 	bool LMB; // is mouse was pressed
 	bool Hover; // is mouse over the button

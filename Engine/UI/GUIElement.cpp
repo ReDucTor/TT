@@ -7,7 +7,7 @@ GUIElement::GUIElement(std::string name, RectF rect)
 	Active(false),
 	LMB(false),
 	Hover(false),
-	ElementStatus(true)
+	Enabled(true)
 {
 }
 

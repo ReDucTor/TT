@@ -16,7 +16,7 @@ GUITextInput::GUITextInput(std::string name, float x, float y, int width, int he
 }
 
 void GUITextInput::Update(Mouse* _mouse, Keyboard* kbd) {
-	if (ElementStatus) {
+	if (Enabled) {
 		GUIElement::Update(_mouse, kbd);
 		if (LMB) {
 			Active = true;
@@ -43,7 +43,7 @@ void GUITextInput::Update(Mouse* _mouse, Keyboard* kbd) {
 }
 
 void GUITextInput::Draw(Graphics& gfx) {
-	if (ElementStatus) {
+	if (Enabled) {
 		if (placeholder.size() > 0) {
 			if (!Active && inputText.size() <= 0) {
 				gfx.DrawClipText(placeholder, Box, font, phcolor);

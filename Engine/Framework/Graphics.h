@@ -69,14 +69,18 @@ public:
 	{
 		sysBuffer.DrawString(string, pt, font, c);
 	}
-	void DrawClipText(const std::wstring& string, const RectF& pt, const TextSurface::Font& font, Color c)
-	{
-		sysBuffer.DrawClipString(string, pt, font, c);
-	}
 	void DrawText(const std::string& string, const Vec2& pt, const TextSurface::Font& font, Color c)
 	{
 		std::wstring str(string.begin(), string.end());
 		sysBuffer.DrawString(str, pt, font, c);
+	}
+	void DrawText(const std::string & string, const RectF & rect, const TextSurface::Font & font, Color c, TextSurface::Alignment a) {
+		std::wstring str(string.begin(), string.end());
+		sysBuffer.DrawString(str, rect, font, c, a);
+	}
+	void DrawClipText(const std::wstring& string, const RectF& pt, const TextSurface::Font& font, Color c)
+	{
+		sysBuffer.DrawClipString(string, pt, font, c);
 	}
 	void DrawClipText(const std::string& string, const RectF& pt, const TextSurface::Font& font, Color c)
 	{

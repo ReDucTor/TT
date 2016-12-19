@@ -13,41 +13,42 @@ GUIButton::GUIButton(std::string name, std::string title, std::string path, floa
 	Surface::FromFile(path + "_active.png")
 }
 {
-	ty = y + ((height - fontsize) / 2);
-	tx = x + ((width - fontsize) / 2);
+	ty = y + (height /2)- fontsize;
+	tx = x + (width/2) - (fontsize*title.size()/2);
 }
 
 void GUIButton::Draw(Graphics & gfx)
 {
 	if (Enabled) {
-		if (Hover) {
-			if (Alfa) {
-				gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[1]);
-				gfx.DrawText(title, { tx,ty }, bFont, fontColor);
-			}
-			else {
-				gfx.DrawSprite(Box.left, Box.top, Surf[1]);
-				gfx.DrawText(title, { tx,ty }, bFont, fontColor);
-			}
-		}
-		else if (LMB) {
+		if (LMB) {
 			if (Alfa) {
 				gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[2]);
-				gfx.DrawText(title, { tx,ty }, bFont, fontColor);
+				gfx.DrawText(title, Box, bFont, fontColor,TextSurface::Alignment::Center);
 			}
 			else {
 				gfx.DrawSprite(Box.left, Box.top, Surf[2]);
-				gfx.DrawText(title, { tx,ty }, bFont, fontColor);
+				gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
+			}
+		}
+		else if (Hover) {
+			if (Alfa) {
+				gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[1]);
+				gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
+			}
+			else {
+				gfx.DrawSprite(Box.left, Box.top, Surf[1]);
+				gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 			}
 		}
 		else {
 			if (Alfa) {
 				gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[0]);
-				gfx.DrawText(title, { tx,ty }, bFont, fontColor);
+				gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 			}
 			else {
 				gfx.DrawSprite(Box.left, Box.top, Surf[0]);
-				gfx.DrawText(title, { tx,ty }, bFont, fontColor);
+				gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
+				
 			}
 		}
 		GUIElement::Draw(gfx);

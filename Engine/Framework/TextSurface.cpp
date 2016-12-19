@@ -62,13 +62,16 @@ void TextSurface::DrawString( const std::wstring & string,const RectF & rect,con
 	{
 	case Alignment::Left:
 		format.SetAlignment( Gdiplus::StringAlignmentNear );
+		format.SetLineAlignment(Gdiplus::StringAlignmentCenter);
 		break;
 	case Alignment::Right:
 		format.SetAlignment( Gdiplus::StringAlignmentFar );
+		format.SetLineAlignment(Gdiplus::StringAlignmentCenter);
 		break;
 	case Alignment::Center:
 	default:
 		format.SetAlignment( Gdiplus::StringAlignmentCenter );
+		format.SetLineAlignment(Gdiplus::StringAlignmentCenter);
 		break;
 	}
 	Gdiplus::Color textColor( c.GetR(),c.GetG(),c.GetB() );

@@ -8,8 +8,9 @@ public:
 	void Update(Mouse* _mouse, Keyboard* kbd);
 
 	void DrawAsAlfa(bool yn) { Alfa = yn; }
-	void SetTextColor(Color newcolor) { fontColor = newcolor; }
-	void SetTextPosition(float x, float y) { tx = x; ty = y; }
+	void SetTitle(std::string newttl) { title = newttl; }
+	void SetTitleColor(Color newcolor) { fontColor = newcolor; }
+	void SetTitlePosition(float x, float y) { tx = x; ty = y; }
 private:
 	bool Alfa; // draw alfa or normal
 	float tx, ty;

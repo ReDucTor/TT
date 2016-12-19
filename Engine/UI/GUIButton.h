@@ -11,8 +11,10 @@ public:
 	void SetTitle(std::string newttl) { title = newttl; }
 	void SetTitleColor(Color newcolor) { fontColor = newcolor; }
 	void SetTitlePosition(float x, float y) { tx = x; ty = y; }
+	void SetSelectButton(bool yn) { SelectButton = yn; }
 private:
 	bool Alfa; // draw alfa or normal
+	bool SelectButton;
 	float tx, ty;
 	std::string title; // Button text 
 	Color fontColor;

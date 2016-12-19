@@ -1,5 +1,7 @@
 #include "GameStateLogin.h"
 #include "..\UI\GUITextInput.h"
+#include "..\UI\GUIButton.h"
+
 GameStateLogin::GameStateLogin(Game * gm)
 	:
 	GameStateFirstPhase(gm)

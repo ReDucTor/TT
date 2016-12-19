@@ -47,8 +47,8 @@ void GUIManager::Draw(Graphics & gfx)
 
 void GUIManager::Update()
 {
-	int ti = 0;
-	int bt = 0;
+	int ti = 0;//text input
+	int bt = 0;// buttons
 	for (auto i : Elements) {
 		i->Update(_mouse, kbd);
 		switch (i->GetType()) {
@@ -62,7 +62,6 @@ void GUIManager::Update()
 				break;
 		}
 	}
-	//mouse cursor (need to work with type )
 	if (ti > 0) {
 		_mouse->ChangeCursor(IDC_IBEAM);
 	}

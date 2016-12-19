@@ -6,7 +6,7 @@ GameStateSelectServer::GameStateSelectServer(Game * gm)
 	:
 	GameStateFirstPhase(gm)
 {
-	pGUI->AddPanel("selectserverpanel", "..\\data\\textures\\UI\\Menus\\SelectServer3.png", 592, 280);
+	pGUI->AddPanel("selectserverpanel", "..\\data\\textures\\UI\\Menus\\selectserver.png", 592, 280);
 }
 
 void GameStateSelectServer::Draw(Graphics & gfx)

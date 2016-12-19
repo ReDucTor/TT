@@ -8,7 +8,7 @@ GUITextInput::GUITextInput(std::string name, float x, float y, int width, int he
 	inputText(""),
 	maxchar(20),
 	isPassword(false),
-	dot(Surface::FromFile("..\\data\\textures\\dot.png")),
+	dot(Surface::FromFile("..\\data\\textures\\UI\\other\\dot.png")),
 	inputTextColor({ 0,0,0 }),
 	phcolor({ 50,50,50 }),
 	placeholder("")

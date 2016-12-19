@@ -2,7 +2,7 @@
 
 GUITextInput::GUITextInput(std::string name, float x, float y, int width, int height, std::wstring fontfamily)
 	:
-	GUIElement(name, { y, y + height, x, x + width }),
+	GUIElement(name, { y, y + height, x, x + width },TEXTINPUT),
 	fontsize((((float)height) / 3.5) * 2),
 	font(fontfamily, fontsize, false),
 	inputText(""),

@@ -37,6 +37,12 @@
     <Filter Include="Header Files\UI\Futures">
       <UniqueIdentifier>{57854f20-e5d3-4215-814f-d0fbf9d7e420}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\UI\Elements">
+      <UniqueIdentifier>{f1b05696-6187-4dad-baae-634788704b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI\Elements">
+      <UniqueIdentifier>{f262796b-86e1-41e3-a1fa-b0199c8b038e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">
@@ -126,9 +132,6 @@
     <ClInclude Include="GameState\GameStateStartUp.h">
       <Filter>Header Files\GameState</Filter>
     </ClInclude>
-    <ClInclude Include="UI\ButtonEntity.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Client.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -141,14 +144,17 @@
     <ClInclude Include="UI\GUIManager.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="UI\GUITextInput.h">
-      <Filter>Header Files\UI</Filter>
-    </ClInclude>
     <ClInclude Include="UI\Border.h">
       <Filter>Header Files\UI\Futures</Filter>
     </ClInclude>
     <ClInclude Include="UI\GUIButton.h">
-      <Filter>Header Files\UI</Filter>
+      <Filter>Header Files\UI\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\GUIPanel.h">
+      <Filter>Header Files\UI\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\GUITextInput.h">
+      <Filter>Header Files\UI\Elements</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -212,11 +218,14 @@
     <ClCompile Include="UI\GUIManager.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="UI\GUITextInput.cpp">
-      <Filter>Source Files\UI</Filter>
-    </ClCompile>
     <ClCompile Include="UI\GUIButton.cpp">
-      <Filter>Source Files\UI</Filter>
+      <Filter>Source Files\UI\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\GUIPanel.cpp">
+      <Filter>Source Files\UI\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\GUITextInput.cpp">
+      <Filter>Source Files\UI\Elements</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

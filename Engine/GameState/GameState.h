@@ -11,6 +11,7 @@ public:
 	GameState(Game* gm);
 	virtual void Draw(Graphics & gfx){}
 	virtual void Update(){}
+	virtual void GlobalButtonHandler();
 protected:
 	TextSurface::Font MinionPro;
 	//Pointers

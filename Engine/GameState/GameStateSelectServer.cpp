@@ -17,5 +17,12 @@ void GameStateSelectServer::Draw(Graphics & gfx)
 
 void GameStateSelectServer::Update()
 {
+	pGUI->ClearGUI();
 	pGame->SetGameState(std::make_unique<GameStateLogin>(pGame));
+}
+
+void GameStateSelectServer::ButtonHandler()
+{
+	GlobalButtonHandler();//handles global button with are initialized on GameState class
+	//handle local buttons with are unique for this state
 }

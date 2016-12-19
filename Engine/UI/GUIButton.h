@@ -3,7 +3,7 @@
 
 class GUIButton :public GUIElement {
 public:
-	GUIButton(std::string name, std::string title, std::string path,float x, float y,int width,int height,std::wstring font,float fontsize,bool textbold);
+	GUIButton(std::string name, std::string title, std::string path,float x, float y,std::wstring font,float fontsize,bool textbold);
 	void Draw(Graphics& gfx);
 	void Update(Mouse* _mouse, Keyboard* kbd);
 

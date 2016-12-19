@@ -7,7 +7,7 @@ GameStateLogin::GameStateLogin(Game * gm)
 {
 	pGUI->AddTextInput("username", 589, 313, 185, 25);
 	pGUI->AddTextInput("password", 589, 361, 185, 25);
-	pGUI->AddButton("login", "LOG IN", "..\\data\\textures\\UI\\buttons\\login", 616, 405, 134, 29, L"MinionPro", 18, false);
+	pGUI->AddButton("loginbtn", "LOG IN", "..\\data\\textures\\UI\\buttons\\login", 616, 405, L"MinionPro", 14, false);
 	auto username = std::static_pointer_cast<GUITextInput>(pGUI->GetElement("username"));
 	auto password = std::static_pointer_cast<GUITextInput>(pGUI->GetElement("password"));
 	password->SetTypePassword(true);
@@ -21,4 +21,13 @@ void GameStateLogin::Draw(Graphics & gfx)
 
 void GameStateLogin::Update()
 {
+	ButtonHandler();
+}
+
+void GameStateLogin::ButtonHandler()
+{
+	GlobalButtonHandler();//handles global button with are initialized on GameState class
+	if (pGUI->GetElement("loginbtn")->IsLMB()) {
+		//cath data from username and password input and proceed to server side 
+	}
 }

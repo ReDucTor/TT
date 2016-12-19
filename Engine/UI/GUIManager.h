@@ -10,10 +10,10 @@ public:
 	GUIManager(Mouse* ms,Keyboard* kbd);
 	~GUIManager();
 	void AddTextInput(std::string name, float x, float y, int width, int height, std::wstring fontfamily = L"Minion Pro");
-	void AddButton(std::string name, std::string title, std::string path, float x, float y, int width, int height, std::wstring font, float fontsize, bool textbold);
+	void AddButton(std::string name, std::string title, std::string path, float x, float y, std::wstring font, float fontsize, bool textbold);
 	void AddCheckBox();
 	void AddList();
-	void AddPanel();
+	void AddPanel(std::string name, std::string path, float x, float y);
 	void Draw(Graphics& gfx);
 	void Update();
 	void ClearGUI();

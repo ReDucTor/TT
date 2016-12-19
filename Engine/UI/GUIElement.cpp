@@ -1,13 +1,14 @@
 #include "GUIElement.h"
 
-GUIElement::GUIElement(std::string name, RectF rect)
+GUIElement::GUIElement(std::string name, RectF rect,eType type)
 	:
 	Name(name),
 	Box(rect),
 	Active(false),
 	LMB(false),
 	Hover(false),
-	Enabled(true)
+	Enabled(true),
+	type(type)
 {
 }
 

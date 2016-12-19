@@ -4,8 +4,9 @@
 class GameStateLogin :public GameStateFirstPhase {
 public:
 	GameStateLogin(Game* gm);
-	virtual void Draw(Graphics& gfx);
-	virtual void Update();
+	void Draw(Graphics& gfx);
+	void Update();
+	void ButtonHandler();
 private:
 	Surface UILoginPanel;
 };

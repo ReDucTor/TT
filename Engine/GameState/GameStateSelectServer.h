@@ -5,8 +5,9 @@
 class GameStateSelectServer:public GameStateFirstPhase {
 public:
 	GameStateSelectServer(Game* gm);
-	virtual void Draw(Graphics& gfx);
-	virtual void Update();
+	void Draw(Graphics& gfx);
+	void Update();
+	void ButtonHandler();
 private:
 	Surface UISelectServerPanel;
 };

@@ -1,8 +1,8 @@
 #include "GUIButton.h"
 
-GUIButton::GUIButton(std::string name, std::string title, std::string path, float x, float y, int width, int height, std::wstring font, float fontsize ,bool textbold)
+GUIButton::GUIButton(std::string name, std::string title, std::string path, float x, float y, std::wstring font, float fontsize ,bool textbold)
 	:
-	GUIElement(name, { y, y + height, x, x + width }),
+	GUIElement(name, { 0,0,0,0 },BUTTON),
 	title(title),
 	bFont(font,fontsize,textbold),
 	Alfa(true),
@@ -13,8 +13,12 @@ GUIButton::GUIButton(std::string name, std::string title, std::string path, floa
 	Surface::FromFile(path + "_active.png")
 }
 {
-	ty = y + (height /2)- fontsize;
-	tx = x + (width/2) - (fontsize*title.size()/2);
+	Box.top = y;
+	Box.bottom = y + Surf[0].GetHeight();
+	Box.left = x;
+	Box.right = x + Surf[0].GetWidth();
+	ty = 0;
+	tx = 0;
 }
 
 void GUIButton::Draw(Graphics & gfx)

@@ -234,10 +234,10 @@
     <ClInclude Include="GameState\GameStateSelectServer.h" />
     <ClInclude Include="GameState\GameStateStartUp.h" />
     <ClInclude Include="UI\Border.h" />
-    <ClInclude Include="UI\ButtonEntity.h" />
     <ClInclude Include="UI\GUIButton.h" />
     <ClInclude Include="UI\GUIElement.h" />
     <ClInclude Include="UI\GUIManager.h" />
+    <ClInclude Include="UI\GUIPanel.h" />
     <ClInclude Include="UI\GUITextInput.h" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +262,7 @@
     <ClCompile Include="UI\GUIButton.cpp" />
     <ClCompile Include="UI\GUIElement.cpp" />
     <ClCompile Include="UI\GUIManager.cpp" />
+    <ClCompile Include="UI\GUIPanel.cpp" />
     <ClCompile Include="UI\GUITextInput.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

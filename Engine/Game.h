@@ -51,8 +51,8 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables        */
-	std::unique_ptr<GameState> pCurrentState;
-	Client GameClient;
 	GUIManager GUI;
+	Client GameClient;
+	std::unique_ptr<GameState> pCurrentState;
 	/********************************/
 };

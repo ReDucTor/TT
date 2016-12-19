@@ -7,6 +7,8 @@ GameStateStartUp::GameStateStartUp(Game* gm)
 	GameStateFirstPhase(gm),
 	LoadIco("..\\data\\textures\\LoadSheetIcon\\load", 13, 3)
 {
+	pGUI->GetElement("SETTINGS")->Disable();
+	pGUI->GetElement("QUITGAME")->Disable();
 	LoadPhase = LOADING;
 }
 
@@ -36,6 +38,7 @@ void GameStateStartUp::Update()
 		break;
 	case CONNECTED:
 		//Log("Startup: Connected");
+		pGUI->ClearGUI();
 		pGame->SetGameState(std::make_unique<GameStateSelectServer>(pGame));
 		break;
 	}

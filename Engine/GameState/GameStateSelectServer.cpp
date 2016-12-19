@@ -4,15 +4,14 @@
 
 GameStateSelectServer::GameStateSelectServer(Game * gm)
 	:
-	GameStateFirstPhase(gm),
-	UISelectServerPanel(Surface::FromFile("..\\data\\textures\\UI\\Menus\\SelectServer3.png"))
+	GameStateFirstPhase(gm)
 {
+	pGUI->AddPanel("selectserverpanel", "..\\data\\textures\\UI\\Menus\\SelectServer3.png", 592, 280);
 }
 
 void GameStateSelectServer::Draw(Graphics & gfx)
 {
 	GameStateFirstPhase::Draw(gfx);
-	UISelectServerPanel.Draw(592, 280, gfx);
 }
 
 void GameStateSelectServer::Update()

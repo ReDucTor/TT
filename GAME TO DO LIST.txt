@@ -6,3 +6,4 @@ if not set to default
 //Button fix : if tx and ty = 0 then draw GUI aling center else draw at tx and ty
 
 //thinkg where to draw GUI on game.cpp or inside state machine consult if needed 
+//think about Z index (do i need this ? )

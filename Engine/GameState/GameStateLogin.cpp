@@ -2,9 +2,9 @@
 #include "..\UI\GUITextInput.h"
 GameStateLogin::GameStateLogin(Game * gm)
 	:
-	GameStateFirstPhase(gm),
-	UILoginPanel(Surface::FromFile("..\\data\\textures\\UI\\Menus\\LoginInput.png"))
+	GameStateFirstPhase(gm)
 {
+	pGUI->AddPanel("loginpanel", "..\\data\\textures\\UI\\Menus\\LoginInput.png", 587, 311);
 	pGUI->AddTextInput("username", 589, 313, 185, 25);
 	pGUI->AddTextInput("password", 589, 361, 185, 25);
 	pGUI->AddButton("loginbtn", "LOG IN", "..\\data\\textures\\UI\\buttons\\login", 616, 405, L"MinionPro", 14, false);
@@ -16,7 +16,6 @@ GameStateLogin::GameStateLogin(Game * gm)
 void GameStateLogin::Draw(Graphics & gfx)
 {
 	GameStateFirstPhase::Draw(gfx);
-	UILoginPanel.DrawAlfa(587, 311, gfx);
 }
 
 void GameStateLogin::Update()

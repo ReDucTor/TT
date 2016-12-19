@@ -8,6 +8,4 @@ public:
 	void Draw(Graphics& gfx);
 	void Update();
 	void ButtonHandler();
-private:
-	Surface UISelectServerPanel;
 };

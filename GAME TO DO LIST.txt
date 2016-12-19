@@ -1,9 +1,3 @@
-//test type that made for elements
-//Make Cursor system Getelement type switch type and count if there
- is any , then check if anything is hovered if its check each counts , 
-if not set to default
-//Fix State machine make GUI panels instead of surface panels 
 //Button fix : if tx and ty = 0 then draw GUI aling center else draw at tx and ty
-
 //thinkg where to draw GUI on game.cpp or inside state machine consult if needed 
 //think about Z index (do i need this ? )

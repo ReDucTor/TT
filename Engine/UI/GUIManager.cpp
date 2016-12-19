@@ -48,15 +48,26 @@ void GUIManager::Draw(Graphics & gfx)
 void GUIManager::Update()
 {
 	int ti = 0;
+	int bt = 0;
 	for (auto i : Elements) {
 		i->Update(_mouse, kbd);
-		if (i->IsHover()) {
-			ti++;
+		switch (i->GetType()) {
+			case GUIElement::eType::TEXTINPUT:
+				if (i->IsHover())
+					ti++;
+				break;
+			case GUIElement::eType::BUTTON:
+				if (i->IsHover())
+					bt++;
+				break;
 		}
 	}
 	//mouse cursor (need to work with type )
 	if (ti > 0) {
 		_mouse->ChangeCursor(IDC_IBEAM);
+	}
+	else if (bt > 0) {
+		_mouse->ChangeCursor(IDC_HAND);
 	}
 	else {
 		_mouse->ChangeCursor(IDC_ARROW);

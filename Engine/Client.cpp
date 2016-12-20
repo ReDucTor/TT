@@ -151,7 +151,7 @@ bool Client::SendMsg(std::string msg, bool incPacketType) {
 			return false;
 		}
 	}
-	int32_t msglen = msg.size();
+	int32_t msglen = (int32_t)msg.size();
 	if (!SendInt32(msglen)) {
 		return false;
 	}

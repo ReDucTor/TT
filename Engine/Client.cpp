@@ -87,33 +87,55 @@ int Client::UserMsgHandler()
 	return 0;
 }
 
+bool Client::SendAllBytes(char * data, int totalbytes)
+{
+	int bytessent = 0;
+	while (bytessent < totalbytes) {
+		int ReturnCheck = send(Connection, data - bytessent, totalbytes - bytessent, NULL);
+		if (ReturnCheck = SOCKET_ERROR) {
+			return false;
+		}
+		bytessent += ReturnCheck;
+	}
+	return true;
+}
+
+bool Client::RecvAllBytes(char * data, int totalbytes)
+{
+	int bytesreceived = 0;
+	while (bytesreceived < totalbytes) {
+		int ReturnCheck = recv(Connection, data - bytesreceived, totalbytes - bytesreceived, NULL);
+		if (ReturnCheck == SOCKET_ERROR) {
+			return false;
+		}
+		bytesreceived += ReturnCheck;
+	}
+	return true;
+}
+
 bool Client::SendInt(int _int) {
-	int ReturnCheck = send(Connection, (char*)& _int, sizeof(int), NULL);
-	if (ReturnCheck == SOCKET_ERROR) {
+	if (!SendAllBytes((char*)&_int,sizeof(_int))){
 		return false;
 	}
 	return true;
 }
 
 bool Client::GetInt(int& _int) {
-	int ReturnCheck = recv(Connection, (char*)& _int, sizeof(int), NULL);
-	if (ReturnCheck == SOCKET_ERROR) {
+	if (!RecvAllBytes((char*)&_int,sizeof(_int))) {
 		return false;
 	}
 	return true;
 }
 
 bool Client::SendPacketType(Packet type) {
-	int ReturnCheck = send(Connection, (char*)& type, sizeof(Packet), NULL);
-	if (ReturnCheck == SOCKET_ERROR) {
+	if (!SendAllBytes((char*)&type,sizeof(type))) {
 		return false;
 	}
 	return true;
 }
 
 bool Client::GetPacketType(Packet & type) {
-	int ReturnCheck = recv(Connection, (char*)& type, sizeof(Packet), NULL);
-	if (ReturnCheck == SOCKET_ERROR) {
+	if (!RecvAllBytes((char*)&type,sizeof(type))) {
 		return false;
 	}
 	return true;
@@ -123,12 +145,11 @@ bool Client::SendMsg(std::string msg) {
 	if (!SendPacketType(ChatMessage)) {
 		return false;
 	}
-	int msglen = static_cast<int>(msg.size());
+	int msglen = msg.size();
 	if (!SendInt(msglen)) {
 		return false;
 	}
-	int ReturnCheck = send(Connection, msg.c_str(), msglen, NULL);
-	if (ReturnCheck == SOCKET_ERROR) {
+	if (!SendAllBytes((char*)&msg,msglen)) {
 		return false;
 	}
 	return true;
@@ -141,12 +162,11 @@ bool Client::GetMsg(std::string & msg) {
 	}
 	char * _msg = new char[msglen + 1];
 	_msg[msglen] = '\0';
-	int ReturnCheck = recv(Connection, _msg, msglen, NULL);
-	msg = _msg;
-	delete[] _msg;
-	if (ReturnCheck == SOCKET_ERROR) {
+	if (!RecvAllBytes(_msg, msglen)) {
 		return false;
 	}
+	msg = _msg;
+	delete[] _msg;
 	return true;
 }
 

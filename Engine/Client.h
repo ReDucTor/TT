@@ -21,6 +21,8 @@ public:
 	bool CloseConnection();
 	bool SendMsg(std::string msg);
 private:
+	bool SendAllBytes(char * data, int totalbytes);
+	bool RecvAllBytes(char * data, int totalbytes);
 	bool ProcessPacket(Packet packettype);
 	static int UserMsgHandler();
 	bool SendInt(int _int);

@@ -1,3 +1,11 @@
 //Button fix : if tx and ty = 0 then draw GUI aling center else draw at tx and ty
 //thinkg where to draw GUI on game.cpp or inside state machine consult if needed 
 //think about Z index (do i need this ? )
+//future thinking about sprite and all texture packing (witch algorithm and how do i want to do)
+// need to renew client.h and server side aswell 
+// get your self together and start doing server side together with client side so can 
+by connect and do some tests and start making actuall game.
+//Server side structure : untill player are not logedin use defaul class for storing client once client connect
+to the game fill player class with a data from database and client message handler all other data that will by requered
+delete player class once player disconnect , store all info inside player class and send or update as requested instead of 
+connecting to database each time player requests.think good way of sending and handling packages with user info ...

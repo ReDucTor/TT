@@ -40,7 +40,7 @@ bool Client::CloseConnection()
 	return true;
 }
 
-bool Client::ProcessPacket(Packet packettype)
+bool Client::ProcessPacket(PacketType packettype)
 {
 	switch (packettype)
 	{
@@ -68,7 +68,7 @@ bool Client::ProcessPacket(Packet packettype)
 
 int Client::UserMsgHandler()
 {
-	Packet ptype;
+	PacketType ptype;
 	while (true) {
 		if (!pClient->GetPacketType(ptype)) {
 			break;
@@ -129,25 +129,27 @@ bool Client::GetInt32(int32_t& int32) {
 	return true;
 }
 
-bool Client::SendPacketType(Packet type) {
+bool Client::SendPacketType(PacketType type) {
 	if (!SendInt32(type)) {
 		return false;
 	}
 	return true;
 }
 
-bool Client::GetPacketType(Packet & type) {
+bool Client::GetPacketType(PacketType & type) {
 	int32_t packettype;
 	if (!GetInt32(packettype)) {
 		return false;
 	}
-	type = (Packet)packettype;
+	type = (PacketType)packettype;
 	return true;
 }
 
-bool Client::SendMsg(std::string msg) {
-	if (!SendPacketType(ChatMessage)) {
-		return false;
+bool Client::SendMsg(std::string msg, bool incPacketType) {
+	if (incPacketType) {
+		if (!SendPacketType(ChatMessage)) {
+			return false;
+		}
 	}
 	int32_t msglen = msg.size();
 	if (!SendInt32(msglen)) {

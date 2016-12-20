@@ -25,8 +25,8 @@ private:
 	bool RecvAllBytes(char * data, int totalbytes);
 	bool ProcessPacket(Packet packettype);
 	static int UserMsgHandler();
-	bool SendInt(int _int);
-	bool GetInt(int& _int);
+	bool SendInt32(int32_t int32);
+	bool GetInt32(int32_t& int32);
 	bool SendPacketType(Packet type);
 	bool GetPacketType(Packet& type);
 	bool GetMsg(std::string & msg);

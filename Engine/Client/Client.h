@@ -1,7 +1,7 @@
 #pragma once
 #define NOMINMAX
 #ifndef _INC_WINDOWS
-#include "Framework\ChiliWin.h"
+#include "..\Framework\ChiliWin.h"
 #endif
 #include <iostream>
 #include <string>

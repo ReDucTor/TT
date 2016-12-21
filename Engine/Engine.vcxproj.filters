@@ -43,6 +43,12 @@
     <Filter Include="Source Files\UI\Elements">
       <UniqueIdentifier>{f262796b-86e1-41e3-a1fa-b0199c8b038e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Client">
+      <UniqueIdentifier>{587c018b-1439-43f8-9737-42e736030e48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Client">
+      <UniqueIdentifier>{64477603-cecf-4c6c-9161-3a15e48cfa03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">
@@ -64,9 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\AnimatedSurface.h">
-      <Filter>Header Files\Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\BMP.h">
       <Filter>Header Files\Framework</Filter>
     </ClInclude>
     <ClInclude Include="Framework\ChiliException.h">
@@ -132,9 +135,6 @@
     <ClInclude Include="GameState\GameStateStartUp.h">
       <Filter>Header Files\GameState</Filter>
     </ClInclude>
-    <ClInclude Include="Client.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -156,11 +156,11 @@
     <ClInclude Include="UI\GUITextInput.h">
       <Filter>Header Files\UI\Elements</Filter>
     </ClInclude>
+    <ClInclude Include="Client\Client.h">
+      <Filter>Header Files\Client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Framework\BMP.cpp">
-      <Filter>Source Files\Framework</Filter>
-    </ClCompile>
     <ClCompile Include="Framework\DXErr.cpp">
       <Filter>Source Files\Framework</Filter>
     </ClCompile>
@@ -203,9 +203,6 @@
     <ClCompile Include="GameState\GameStateStartUp.cpp">
       <Filter>Source Files\GameState</Filter>
     </ClCompile>
-    <ClCompile Include="Client.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -226,6 +223,12 @@
     </ClCompile>
     <ClCompile Include="UI\GUITextInput.cpp">
       <Filter>Source Files\UI\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\Client.cpp">
+      <Filter>Source Files\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\SendMethods.cpp">
+      <Filter>Source Files\Client</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

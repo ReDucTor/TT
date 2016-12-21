@@ -20,7 +20,7 @@
  ******************************************************************************************/
 #pragma once
 
-#include "Client.h"
+#include "Client\Client.h"
 #include "Framework\Keyboard.h"
 #include "Framework\Mouse.h"
 #include "GameState\GameState.h"

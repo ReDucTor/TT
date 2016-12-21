@@ -208,9 +208,8 @@
     <Image Include="Chili.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Client.h" />
+    <ClInclude Include="Client\Client.h" />
     <ClInclude Include="Framework\AnimatedSurface.h" />
-    <ClInclude Include="Framework\BMP.h" />
     <ClInclude Include="Framework\ChiliException.h" />
     <ClInclude Include="Framework\ChiliMath.h" />
     <ClInclude Include="Framework\ChiliWin.h" />
@@ -241,8 +240,8 @@
     <ClInclude Include="UI\GUITextInput.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Client.cpp" />
-    <ClCompile Include="Framework\BMP.cpp" />
+    <ClCompile Include="Client\Client.cpp" />
+    <ClCompile Include="Client\SendMethods.cpp" />
     <ClCompile Include="Framework\DXErr.cpp" />
     <ClCompile Include="Framework\GDIPlusManager.cpp" />
     <ClCompile Include="Framework\Graphics.cpp" />

@@ -20,7 +20,7 @@
 ******************************************************************************************/
 #pragma once
 
-#include "..\Client.h"
+#include "..\Client\Client.h"
 #include "ChiliWin.h"
 #include "Keyboard.h"
 #include "Mouse.h"

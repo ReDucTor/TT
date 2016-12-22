@@ -34,6 +34,7 @@ void GameStateStartUp::Update()
 		}
 		break;
 	case RETRIEVEDATA:
+		
 		//Retriev server list from server side
 		break;
 	case CONNECTED:

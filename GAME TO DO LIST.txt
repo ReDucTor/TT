@@ -5,6 +5,12 @@
 // need to renew client.h and server side aswell 
 // get your self together and start doing server side together with client side so can 
 by connect and do some tests and start making actuall game.
+//Requestlogin function add database name as a aparamater wich should client send then 
+requesting to login 
+
+
+
+
 //Server side structure : untill player are not logedin use defaul class for storing client once client connect
 to the game fill player class with a data from database and client message handler all other data that will by requered
 delete player class once player disconnect , store all info inside player class and send or update as requested instead of 

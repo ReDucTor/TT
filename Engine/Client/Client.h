@@ -6,14 +6,16 @@
 #include <iostream>
 #include <string>
 
+
 class Client {
 private:
-	enum PacketType {
+	enum PacketType{
 		ChatMessage,
 		AttemptToLogin,
 		WrongPassword,
 		NoSuchUser,
-		LoginSuccessful
+		LoginSuccessful,
+		RequestServerInfo
 	};
 public:
 	Client();

@@ -21,7 +21,7 @@ public:
 	void SetPlaceHolderColor(Color newcolor) { phcolor = newcolor; }
 	std::string GetInput() const { return inputText; }
 private:
-	void DrawActiveCursor(int x, int y, Graphics& gfx);
+	void DrawActiveCursor(float x, float y, Graphics& gfx);
 	bool Blink();
 private:
 	bool isPassword;

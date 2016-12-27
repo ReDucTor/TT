@@ -3,7 +3,7 @@
 GUITextInput::GUITextInput(std::string name, float x, float y, int width, int height, std::wstring fontfamily)
 	:
 	GUIElement(name, { y, y + height, x, x + width },TEXTINPUT),
-	fontsize((((float)height) / 3.5) * 2),
+	fontsize((float)(((float)height) / 3.5) * 2),
 	font(fontfamily, fontsize, false),
 	inputText(""),
 	maxchar(20),
@@ -57,20 +57,20 @@ void GUITextInput::Draw(Graphics& gfx) {
 					todraw += uni;
 					}*/
 					//gfx.DrawClipText(todraw, Box, font, Colors::Black);
-					int len = inputText.size();
+					int len = (int)inputText.size();
 					float x = (Box.GetHeight() / 2) - (dot.GetWidth() / 2) - ((Box.GetHeight() / 10) * 2);
 					float y = (Box.GetHeight() / 2) - (dot.GetWidth() / 2);
-					int fit = Box.GetWidth() / (dot.GetWidth() + (Box.GetHeight() / 10));
+					int fit = (int)(Box.GetWidth() / (dot.GetWidth() + (Box.GetHeight() / 10)));
 					if (len < fit) {
-						for (unsigned int i = 0; i < len; i++) {
+						for (int i = 0; i < len; i++) {
 							float each = (dot.GetWidth() + (Box.GetHeight() / 10)) * i;
-							gfx.DrawSpriteAlfa(Box.left + x + each, Box.top + y, dot);
+							gfx.DrawSpriteAlfa((int)(Box.left + x + each), (int)(Box.top + y), dot);
 						}
 					}
 					else {
 						for (int i = 0; i < fit; i++) {
 							float each = (dot.GetWidth() + (Box.GetHeight() / 10)) * i;
-							gfx.DrawSpriteAlfa(Box.left + x + each, Box.top + y, dot);
+							gfx.DrawSpriteAlfa((int)(Box.left + x + each), (int)(Box.top + y), dot);
 						}
 					}
 
@@ -91,20 +91,20 @@ void GUITextInput::Draw(Graphics& gfx) {
 				todraw += uni;
 				}
 				gfx.DrawClipText(todraw, Box, font, Colors::Black);*/
-				int len = inputText.size();
+				int len = (int)inputText.size();
 				float x = (Box.GetHeight() / 2) - (dot.GetWidth() / 2) - ((Box.GetHeight() / 10) * 2);
 				float y = (Box.GetHeight() / 2) - (dot.GetWidth() / 2);
-				int fit = Box.GetWidth() / (dot.GetWidth() + (Box.GetHeight() / 10));
+				int fit = (int)(Box.GetWidth() / (dot.GetWidth() + (Box.GetHeight() / 10)));
 				if (len < fit) {
-					for (unsigned int i = 0; i < len; i++) {
+					for (int i = 0; i < len; i++) {
 						float each = (dot.GetWidth() + (Box.GetHeight() / 10)) * i;
-						gfx.DrawSpriteAlfa(Box.left + x + each, Box.top + y, dot);
+						gfx.DrawSpriteAlfa((int)(Box.left + x + each), (int)(Box.top + y), dot);
 					}
 				}
 				else {
 					for (int i = 0; i < fit; i++) {
 						float each = (dot.GetWidth() + (Box.GetHeight() / 10)) * i;
-						gfx.DrawSpriteAlfa(Box.left + x + each, Box.top + y, dot);
+						gfx.DrawSpriteAlfa((int)(Box.left + x + each), (int)(Box.top + y), dot);
 					}
 				}
 
@@ -117,9 +117,9 @@ void GUITextInput::Draw(Graphics& gfx) {
 
 		if (Active) {
 			RectF rc = gfx.MeasureString(inputText, -1, font, Box);
-			int x;
+			float x;
 			if (isPassword) {
-				int fit = Box.GetWidth() / (dot.GetWidth() + (Box.GetHeight() / 10));
+				int fit = (int)(Box.GetWidth() / (dot.GetWidth() + (Box.GetHeight() / 10)));
 				if (inputText.size() < fit) {
 					if (inputText.size() == 0) {
 						x = rc.GetWidth() + (fontsize / 5);
@@ -145,18 +145,18 @@ void GUITextInput::Draw(Graphics& gfx) {
 					x = Box.GetWidth() - (Box.GetHeight() / 10);
 				}
 			}
-			int y = (Box.GetHeight() / 2) - (fontsize / 2);
+			float y = (Box.GetHeight() / 2) - (fontsize / 2);
 			DrawActiveCursor(Box.left + x, Box.top + y, gfx);
 		}
 		GUIElement::Draw(gfx);
 	}
 }
 
-void GUITextInput::DrawActiveCursor(int x, int y, Graphics & gfx)
+void GUITextInput::DrawActiveCursor(float x,float y, Graphics & gfx)
 {
 	if (Blink()) {
 		for (int i = 0; i < fontsize; i++) {
-			gfx.PutPixel(x, y + i, inputTextColor);
+			gfx.PutPixel((int)x,(int) y + i, inputTextColor);
 		}
 	}
 }

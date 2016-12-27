@@ -160,7 +160,7 @@ LRESULT MainWindow::HandleMsg( HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam )
 	{
 		int x = LOWORD( lParam );
 		int y = HIWORD( lParam );
-		if( x > 0 && x < ScreenWidth && y > 0 && y < ScreenHeight )
+		if( x > 0 && x < (int)ScreenWidth && y > 0 && y < (int)ScreenHeight )
 		{
 			mouse.OnMouseMove( x,y );
 			if( !mouse.IsInWindow() )

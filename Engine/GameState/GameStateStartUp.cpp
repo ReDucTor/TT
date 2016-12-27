@@ -19,8 +19,8 @@ void GameStateStartUp::Update()
 	{
 	case LOADING:
 		//Log("Startup:Resources Loaded");
-		LoadPhase = CONNECTING;
-		//LoadPhase = CONNECTED;
+		//LoadPhase = CONNECTING;
+		LoadPhase = CONNECTED;
 		break;
 	case FAILEDTOLOADRESS:
 		//LogErr("Startup:Failed to laod Resources");

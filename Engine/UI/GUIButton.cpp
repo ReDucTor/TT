@@ -28,31 +28,31 @@ void GUIButton::Draw(Graphics & gfx)
 		if (SelectButton) {
 			if (Active) {
 				if (Alfa) {
-					gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[2]);
+					gfx.DrawSpriteAlfa((int)Box.left, (int)Box.top, Surf[2]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 				else {
-					gfx.DrawSprite(Box.left, Box.top, Surf[2]);
+					gfx.DrawSprite((int)Box.left, (int)Box.top, Surf[2]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 			}
 			else if (Hover) {
 				if (Alfa) {
-					gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[1]);
+					gfx.DrawSpriteAlfa((int)Box.left, (int)Box.top, Surf[1]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 				else {
-					gfx.DrawSprite(Box.left, Box.top, Surf[1]);
+					gfx.DrawSprite((int)Box.left, (int)Box.top, Surf[1]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 			}
 			else {
 				if (Alfa) {
-					gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[0]);
+					gfx.DrawSpriteAlfa((int)Box.left, (int)Box.top, Surf[0]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 				else {
-					gfx.DrawSprite(Box.left, Box.top, Surf[0]);
+					gfx.DrawSprite((int)Box.left, (int)Box.top, Surf[0]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 
 				}
@@ -61,31 +61,31 @@ void GUIButton::Draw(Graphics & gfx)
 		else {
 			if (LMB) {
 				if (Alfa) {
-					gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[2]);
+					gfx.DrawSpriteAlfa((int)Box.left, (int)Box.top, Surf[2]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 				else {
-					gfx.DrawSprite(Box.left, Box.top, Surf[2]);
+					gfx.DrawSprite((int)Box.left, (int)Box.top, Surf[2]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 			}
 			else if (Hover) {
 				if (Alfa) {
-					gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[1]);
+					gfx.DrawSpriteAlfa((int)Box.left, (int)Box.top, Surf[1]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 				else {
-					gfx.DrawSprite(Box.left, Box.top, Surf[1]);
+					gfx.DrawSprite((int)Box.left, (int)Box.top, Surf[1]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 			}
 			else {
 				if (Alfa) {
-					gfx.DrawSpriteAlfa(Box.left, Box.top, Surf[0]);
+					gfx.DrawSpriteAlfa((int)Box.left, (int)Box.top, Surf[0]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 				}
 				else {
-					gfx.DrawSprite(Box.left, Box.top, Surf[0]);
+					gfx.DrawSprite((int)Box.left, (int)Box.top, Surf[0]);
 					gfx.DrawText(title, Box, bFont, fontColor, TextSurface::Alignment::Center);
 
 				}

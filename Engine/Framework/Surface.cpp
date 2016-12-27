@@ -163,10 +163,10 @@ void Surface::Copy( const Surface & src )
 
 void Surface::Draw(float x, float y, Graphics & gfx)
 {
-	gfx.DrawSprite(x, y, *this);
+	gfx.DrawSprite((int)x,(int) y, *this);
 }
 
 void Surface::DrawAlfa(float x, float y, Graphics & gfx)
 {
-	gfx.DrawSpriteAlfa(x, y, *this);
+	gfx.DrawSpriteAlfa((int)x, (int)y, *this);
 }

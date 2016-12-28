@@ -49,6 +49,9 @@
     <Filter Include="Source Files\Client">
       <UniqueIdentifier>{64477603-cecf-4c6c-9161-3a15e48cfa03}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\DataStruct">
+      <UniqueIdentifier>{8bcaa6e1-bb10-47f9-88fe-289855f9284c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">
@@ -159,6 +162,15 @@
     <ClInclude Include="Client\Client.h">
       <Filter>Header Files\Client</Filter>
     </ClInclude>
+    <ClInclude Include="Client\PacketManager.h">
+      <Filter>Header Files\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\Packet.h">
+      <Filter>Header Files\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStruct\ServerInfo.h">
+      <Filter>Header Files\DataStruct</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\DXErr.cpp">
@@ -228,6 +240,12 @@
       <Filter>Source Files\Client</Filter>
     </ClCompile>
     <ClCompile Include="Client\SendMethods.cpp">
+      <Filter>Source Files\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\Packet.cpp">
+      <Filter>Source Files\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\PacketManager.cpp">
       <Filter>Source Files\Client</Filter>
     </ClCompile>
   </ItemGroup>

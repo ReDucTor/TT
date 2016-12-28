@@ -26,10 +26,11 @@ Game::Game(MainWindow& wnd, unsigned int width, unsigned int height)
 	:
 	wnd(wnd),
 	gfx(wnd, width, height),
-	pCurrentState(new GameStateStartUp(this)),
+	pCurrentState(std::make_unique<GameStateStartUp>(this)),
 	GameClient(),
 	GUI(&wnd.mouse,&wnd.kbd)
 {
+	GameClient.SetGameState(pCurrentState.get());
 }
 
 void Game::Go()
@@ -45,6 +46,7 @@ void Game::UpdateModel()
 	if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
 		exit(1);
 	}
+	GameClient.PacketSenderThread();
 	pCurrentState->Update();
 	GUI.Update();
 }
@@ -58,6 +60,7 @@ void Game::ComposeFrame()
 void Game::SetGameState(std::unique_ptr<GameState>&& newstate)
 {
 	pCurrentState = std::move(newstate);
+	GameClient.SetGameState(newstate.get());
 }
 
 Client * Game::GetClient()

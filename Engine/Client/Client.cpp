@@ -1,4 +1,5 @@
 #include "Client.h"
+#include "..\Game.h"
 
 Client::Client()
 {
@@ -14,6 +15,7 @@ Client::Client()
 	addr.sin_port = htons(5555);
 	addr.sin_family = AF_INET;
 	pClient = this;
+	pGameState = nullptr;
 }
 
 bool Client::Connect()
@@ -37,32 +39,7 @@ bool Client::CloseConnection()
 		MessageBoxA(NULL, errormsg.c_str(), "Error", MB_OK | MB_ICONERROR);
 		return false;
 	}
-	return true;
-}
-
-bool Client::ProcessPacket(PacketType packettype)
-{
-	switch (packettype)
-	{
-		case ChatMessage:
-		{
-			std::string msg;
-			if (!GetMsg(msg)) {
-				return false;
-			}
-			std::cout << msg << std::endl;
-			break;
-		}
-		case LoginSuccessful:
-			break;
-		case WrongPassword:
-			break;
-		case NoSuchUser:
-			break;
-		default:
-			std::cout << "Unknown packet: " << packettype << std::endl;
-			break;
-	}
+	pm.Clear();
 	return true;
 }
 
@@ -73,7 +50,7 @@ int Client::UserMsgHandler()
 		if (!pClient->GetPacketType(ptype)) {
 			break;
 		}
-		if (!pClient->ProcessPacket(ptype)) {
+		if (!pClient->pGameState->PacketHandler(ptype)) {
 			break;
 		}
 	}
@@ -87,4 +64,17 @@ int Client::UserMsgHandler()
 	return 0;
 }
 
+void Client::PacketSenderThread()
+{
+	while(pClient->pm.HavePackets()) {
+		Packet p = pClient->pm.Retrieve();
+		if (!pClient->SendAllBytes((char*)&p.buffer.front(), (int)p.buffer.size())) {
+			std::cout << "failed to send packet" << std::endl;
+		}
+	}
+}
 
+void Client::SetGameState(GameState * state)
+{
+	pGameState = state;
+}

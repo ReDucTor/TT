@@ -46,6 +46,7 @@ public :
 	void SetGameState(std::unique_ptr<GameState>&& newstate);
 	Client* GetClient();
 	GUIManager* GetGUI();
+	std::unique_ptr<GameState>& GetState() { return pCurrentState; }
 private:
 	MainWindow& wnd;
 	Graphics gfx;

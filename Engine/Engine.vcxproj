@@ -209,6 +209,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.h" />
+    <ClInclude Include="Client\Packet.h" />
+    <ClInclude Include="Client\PacketManager.h" />
+    <ClInclude Include="DataStruct\ServerInfo.h" />
     <ClInclude Include="Framework\AnimatedSurface.h" />
     <ClInclude Include="Framework\ChiliException.h" />
     <ClInclude Include="Framework\ChiliMath.h" />
@@ -241,6 +244,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client\Client.cpp" />
+    <ClCompile Include="Client\Packet.cpp" />
+    <ClCompile Include="Client\PacketManager.cpp" />
     <ClCompile Include="Client\SendMethods.cpp" />
     <ClCompile Include="Framework\DXErr.cpp" />
     <ClCompile Include="Framework\GDIPlusManager.cpp" />

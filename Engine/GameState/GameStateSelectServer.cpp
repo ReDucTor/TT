@@ -2,9 +2,10 @@
 #include "GameStateSelectServer.h"
 #include "GameStateLogin.h"
 
-GameStateSelectServer::GameStateSelectServer(Game * gm)
+GameStateSelectServer::GameStateSelectServer(Game * gm, std::vector<ServerInfo> slist)
 	:
-	GameStateFirstPhase(gm)
+	GameStateFirstPhase(gm),
+	ServerList(slist)
 {
 	pGUI->AddPanel("selectserverpanel", "..\\data\\textures\\UI\\Menus\\selectserver.png", 592, 280);
 }

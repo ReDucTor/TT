@@ -26,57 +26,41 @@ bool Client::RecvAllBytes(char * data, int totalbytes)
 	return true;
 }
 
-bool Client::SendInt32(int32_t int32) {
-	int32 = htonl(int32);
-	if (!SendAllBytes((char*)&int32, sizeof(int32))) {
+bool Client::Get32Bits(int32_t& int32) {
+	if (!RecvAllBytes((char*)&int32, sizeof(int32_t))) {
 		return false;
 	}
 	return true;
 }
 
-bool Client::GetInt32(int32_t& int32) {
-	if (!RecvAllBytes((char*)&int32, sizeof(int32))) {
+bool Client::Get16Bits(int16_t & int16)
+{
+	if (!RecvAllBytes((char*)&int16, sizeof(int16_t))) {
 		return false;
 	}
-	int32 = ntohl(int32);
 	return true;
 }
 
-bool Client::SendPacketType(PacketType type) {
-	if (!SendInt32(type)) {
+bool Client::Get8Bits(int8_t & int8)
+{
+	if (!RecvAllBytes((char*)&int8, sizeof(int8_t))) {
 		return false;
 	}
 	return true;
 }
 
 bool Client::GetPacketType(PacketType & type) {
-	int32_t packettype;
-	if (!GetInt32(packettype)) {
+	int16_t packettype;
+	if (!Get16Bits(packettype)) {
 		return false;
 	}
 	type = (PacketType)packettype;
 	return true;
 }
 
-bool Client::SendMsg(std::string msg, bool incPacketType) {
-	if (incPacketType) {
-		if (!SendPacketType(ChatMessage)) {
-			return false;
-		}
-	}
-	int32_t msglen = (int32_t)msg.size();
-	if (!SendInt32(msglen)) {
-		return false;
-	}
-	if (!SendAllBytes((char*)msg.c_str(), msglen)) {
-		return false;
-	}
-	return true;
-}
-
 bool Client::GetMsg(std::string & msg) {
 	int32_t msglen;
-	if (!GetInt32(msglen)) {
+	if (!Get32Bits(msglen)) {
 		return false;
 	}
 	char * _msg = new char[msglen + 1];

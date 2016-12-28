@@ -4,7 +4,7 @@
 class GameStateLogin :public GameStateFirstPhase {
 public:
 	GameStateLogin(Game* gm);
-	void Draw(Graphics& gfx);
-	void Update();
+	void Draw(Graphics& gfx)override;
+	void Update()override;
 	void ButtonHandler();
 };

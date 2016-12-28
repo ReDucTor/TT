@@ -49,7 +49,7 @@ void GameStateStartUp::Update()
 			LoadPhase = Connected;
 		}
 		else {
-			// pop up wrong version 
+			// pop up wrong version and exit
 		}
 		break;
 	}

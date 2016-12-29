@@ -2,8 +2,13 @@
 #include "GameState.h"
 
 
+// NOTE: (reductor) You should stop using pointers for something that is required, and use
+// a reference instead
 GameState::GameState(Game* gm)
 	:
+	// NOTE: (reductor) You should try to keep the initializer list in the order in which
+	// variables are defined in the header file, as this is the actual order they are
+	// initialized, and not the order you define here.
 	pGame(gm),
 	pClient(gm->GetClient()),
 	MinionPro(L"Minion Pro", 18),

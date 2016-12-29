@@ -3,6 +3,9 @@
 
 Client::Client()
 {
+	// NOTE: (reductor) It might be worth moving WSAStartup earlier (maybe into main())
+	// as it's more a network dependency then a client dependency
+
 	//WinSock Startup
 	WSADATA wsaData;
 	WORD DllVersion = MAKEWORD(2, 2);
@@ -11,9 +14,11 @@ Client::Client()
 		exit(0);
 	}
 
+	// NOTE: (reductor) Should probably move this into it's own method for defining the address
 	inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr);
 	addr.sin_port = htons(5555);
 	addr.sin_family = AF_INET;
+
 	pClient = this;
 	pGameState = nullptr;
 }
@@ -25,6 +30,7 @@ bool Client::Connect()
 		MessageBoxA(NULL, "Failed to connect", "Error", MB_OK | MB_ICONERROR);
 		return false;
 	}
+	// NOTE: (reductor) Should use std::thread
 	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)UserMsgHandler, NULL, NULL, NULL);
 	return true;
 }
@@ -39,10 +45,12 @@ bool Client::CloseConnection()
 		MessageBoxA(NULL, errormsg.c_str(), "Error", MB_OK | MB_ICONERROR);
 		return false;
 	}
+	// NOTE: (reductor) Should pm.Clear() also before any of the other return statements here.
 	pm.Clear();
 	return true;
 }
 
+// NOTE: (reductor) Nothing stops this thread when 'Client' no longer exists in the main thread (program closed)
 int Client::UserMsgHandler()
 {
 	PacketType ptype;
@@ -66,6 +74,7 @@ int Client::UserMsgHandler()
 
 void Client::PacketSenderThread()
 {
+	// NOTE: (reductor) This does not need to use 'pClient' is a member function
 	while(pClient->pm.HavePackets()) {
 		Packet p = pClient->pm.Retrieve();
 		if (!pClient->SendAllBytes((char*)&p.buffer.front(), (int)p.buffer.size())) {
@@ -76,5 +85,7 @@ void Client::PacketSenderThread()
 
 void Client::SetGameState(GameState * state)
 {
+	// NOTE: (reductor) There is a race condition with pGameState changing and being released
+	// while the UserMsgHandler is using it
 	pGameState = state;
 }

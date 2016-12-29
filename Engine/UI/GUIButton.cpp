@@ -1,5 +1,9 @@
 #include "GUIButton.h"
 
+// NOTE: (reductor) When passing variables by value into a sink (The function will take the argument and store it) it is best to use
+// std::move() on these variables (However you should ensure they are only used once), some examples of this are name and title,
+// other examples of where this would go wrong is 'path' which is not a sink and gets used multiple times, so should probably be
+// 'const std::string &' instead, this removes potential unnecessary copy
 GUIButton::GUIButton(std::string name, std::string title, std::string path, float x, float y, std::wstring font, float fontsize ,bool textbold)
 	:
 	GUIElement(name, { 0,0,0,0 },BUTTON),

@@ -46,6 +46,7 @@ void Game::UpdateModel()
 	if (wnd.kbd.KeyIsPressed(VK_ESCAPE)) {
 		exit(1);
 	}
+	// NOTE: (reductor) PacketSenderThread thead can block due to non-blocking call to send()
 	GameClient.PacketSenderThread();
 	pCurrentState->Update();
 	GUI.Update();

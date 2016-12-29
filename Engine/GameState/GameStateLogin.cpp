@@ -10,6 +10,8 @@ GameStateLogin::GameStateLogin(Game * gm)
 	pGUI->AddTextInput("username", 589, 313, 185, 25);
 	pGUI->AddTextInput("password", 589, 361, 185, 25);
 	pGUI->AddButton("loginbtn", "", "..\\data\\textures\\UI\\buttons\\login", 616, 405);
+	// NOTE: (reductor) Instead of using this pattern to fetch the same elements again
+	// you could make 'AddTextInput' return the shared pointer with the proper type
 	auto username = std::static_pointer_cast<GUITextInput>(pGUI->GetElement("username"));
 	auto password = std::static_pointer_cast<GUITextInput>(pGUI->GetElement("password"));
 	password->SetTypePassword(true);

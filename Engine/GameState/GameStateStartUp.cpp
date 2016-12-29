@@ -67,6 +67,8 @@ bool GameStateStartUp::PacketHandler(Client::PacketType type)
 	{
 		case Client::PacketType::General_RequestGameInfo://retrieve server version and server list (db,name)
 		{
+			// NOTE: (reductor) Given a platform where 'int' is not int32_t you might get a compile
+			// error with Get32Bits
 			int listcount;
 			if (!pClient->GetMsg(serverVersion))
 				return false;
@@ -82,6 +84,10 @@ bool GameStateStartUp::PacketHandler(Client::PacketType type)
 					return false;
 				Serverlist.emplace_back(db, name);
 			}
+			// NOTE: (reductor) This is a race condition with different threads reading and writing 
+			// 'LoadPhase' and 'Serverlist' variables, while you might assign them in this specific
+			// order, there is no guarantee's that they will be set in that exact order from the
+			// view of different threads. (Which is why you normally use locks or atomics)
 			LoadPhase = VersionCheck;
 			break;
 		}

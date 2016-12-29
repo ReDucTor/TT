@@ -28,6 +28,7 @@ public:
 	void SetBorder(bool stt) { eBorder.isOn = stt; }
 	void SetBorderColor(Color newcolor) { eBorder.borderColor = newcolor; }
 	void SetBorderSize(int newsize) { eBorder.borderSize = newsize; }
+	// NOTE: (reductor) These should be const
 	eType GetType() { return type; }
 	std::string GetName() const { return Name; }
 private:
@@ -41,5 +42,8 @@ protected:
 	bool Active; // is element active
 	bool LMB; // is mouse was pressed
 	bool Hover; // is mouse over the button
+	// NOTE: (reductor) You can't have a fraction of a pixel, so this probably doesn't
+	// need a 'RectF', 'RectI' might be better, and that would also avoid alot of conversions
+	// that are currently happening
 	RectF Box;			// element rect(box)
 };

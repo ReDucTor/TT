@@ -18,6 +18,8 @@
 *	You should have received a copy of the GNU General Public License					  *
 *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
 ******************************************************************************************/
+// NOTE: (reductor) min and max will only be defined here if defined by the compiler
+// so these are probably unnecessary
 #undef min
 #undef max 
 

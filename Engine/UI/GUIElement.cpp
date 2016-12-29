@@ -17,6 +17,9 @@ void GUIElement::Draw(Graphics & gfx)
 	DrawBorder(gfx);
 }
 
+// NOTE: (reductor) As '_mouse' and 'kdb' are required should use references
+// instead, also might be worth using 'const' if possible. 'kdb' also seemed
+// unused currently.
 void GUIElement::Update(Mouse * _mouse, Keyboard * kbd)
 {
 	if (Box.Overlaps((float)_mouse->GetPosX(), (float)_mouse->GetPosY())) {
@@ -34,11 +37,13 @@ void GUIElement::Update(Mouse * _mouse, Keyboard * kbd)
 	}
 }
 
+// NOTE: (reductor) This should be a const method
 bool GUIElement::IsHover()
 {
 	return Hover;
 }
 
+// NOTE: (reductor) This should be a const method
 bool GUIElement::IsLMB()
 {
 	return LMB;

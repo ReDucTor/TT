@@ -43,9 +43,11 @@ private:
 	/*  User Functions              */
 	/********************************/
 public :
+	// NOTE: (reductor) std::unique_ptr is only movable, the && is unnecessary
 	void SetGameState(std::unique_ptr<GameState>&& newstate);
 	Client* GetClient();
 	GUIManager* GetGUI();
+	// NOTE: (reductor) This appears to be unused
 	std::unique_ptr<GameState>& GetState() { return pCurrentState; }
 private:
 	MainWindow& wnd;

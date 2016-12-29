@@ -49,6 +49,11 @@ void GUIManager::Update()
 {
 	int ti = 0;//text input
 	int bt = 0;// buttons
+	// NOTE: (reductor) Should use const& for 'i' here as this currently
+	// increments the reference count for each item
+	// NOTE: (reductor) Need to be careful that  'Elements' never changes while
+	// this is being iterated over, luckily you just set state to check later, but
+	// if you go to move to a callback system this could break.
 	for (auto i : Elements) {
 		i->Update(_mouse, kbd);
 		switch (i->GetType()) {
